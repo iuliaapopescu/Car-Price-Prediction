@@ -4,8 +4,6 @@ from sklearn import preprocessing
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
-# define models
-linear_regression_model = LinearRegression()
 
 # load training data
 training_data = np.load('training_data.npy')
@@ -51,7 +49,9 @@ def step(train_data, train_labels, test_data, test_labels, model):
     return mae, mse
 
 
-model = linear_regression_model
+print("Values for linear regression are: \n")
+
+model = LinearRegression()
 
 # Run 1
 
@@ -79,7 +79,6 @@ mae_3, mse_3 = step(np.concatenate((training_data_2, training_data_3)),
 
 # Mean mean_absolute_error and mean mean_squared_error for linear regression
 
-print("Values for linear regression are: \n")
 
 mean_mae = (mae_1 + mae_2 + mae_3) / 3
 mean_mse = (mse_1 + mse_2 + mse_3) / 3
